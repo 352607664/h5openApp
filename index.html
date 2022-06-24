@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>H5</title>
+</head>
+
+<body>
+  <div class="weixin-tip">
+    <p>
+      <img src="https://s1.ax1x.com/2020/07/09/UmomPf.png" alt="微信打开" />
+    </p>
+  </div>
+  <div class="header">
+    <div class="title">深圳市公共安全技术研究院+钟东定发起了会议</div>
+    <div>
+      <div class="cloak">14: 26</div>
+      <div class="time">2022年6月14日</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="openApp" onclick="openApp()">打开应用</div>
+    <div class="joinMeeting" onclck="openApp()">加入会议</div>
+  </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+  var ua = navigator.userAgent.toLowerCase();
+  var u = navigator.userAgent
+  var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+  var iphone = u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1
+  var ipad = u.indexOf('iPad') > -1
+  var android = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1
+  $(window).on("load", function () {
+    var winHeight = $(window).height();
+    function is_weixin() {
+      if (ua.match(/MicroMessenger/i) == "micromessenger") { // 微信
+        return true;
+      } else {
+        return false;
+      }
+    }
+    var isWeixin = is_weixin();
+    if (isWeixin) {
+      $(".weixin-tip").css("height", winHeight);
+      $(".weixin-tip").show();
+    }
+    if (ios || iphone || ipad) {
+      console.log('ios')
+    } else if (android) {
+      console.log('andriod')
+    }
+  })
+  // 打开应用
+  const openApp = function () {
+    /***打开app的协议***/
+    window.location.href = "zzsf://www.zzsf.enterprisechat?params=";
+    window.setTimeout(function() {
+      window.location.href = 'https://zzsfportal.ssitg.com/obs/resource/openim/2.2.7-release.apk'
+    }, 3000);
+  }
+</script>
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .weixin-tip {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    filter: alpha(opacity=80);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .weixin-tip p {
+    text-align: center;
+    margin-top: 10%;
+    padding: 0 5%;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .openApp {
+      border: 0.5px solid #e8e8e8
+    }
+
+    .header {
+      border: 0.5px solid #e8e8e8
+    }
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .openApp {
+      border: 0.333333px solid #e8e8e8
+    }
+
+    .header {
+      border: 0.333333px solid #e8e8e8
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+  }
+
+  .openApp {
+    margin: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 1px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+
+
+    font-size: 20px;
+
+    text-align: center;
+    color: rgb(0, 111, 253);
+  }
+
+  .joinMeeting {
+    margin: 0 10px;
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 1px;
+    background: rgb(0, 111, 253);
+    border: 1px solid #666;
+    font-size: 20px;
+
+    text-align: center;
+    color: #fff;
+  }
+
+  body {
+    background: rgb(248, 249, 251);
+    height: 100%;
+  }
+
+  .header {
+    height: 150px;
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .title {
+    color: #2c2c2c;
+    padding-top: 20px;
+    font-size: 20px;
+  }
+
+  .cloak {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+  }
+
+  .time {
+    font-size: 15px;
+    color: #2c2c2c;
+    margin-top: 5px;
+  }
+</style>
+
+</html>
