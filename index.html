@@ -22,8 +22,8 @@
     </div>
   </div>
   <div class="bottom">
-    <div class="openApp" onclick="openApp()">打开应用</div>
-    <div class="joinMeeting" onclck="openApp()">加入会议</div>
+    <div class="openApp" onclick="openApp(1)">打开应用</div>
+    <div class="joinMeeting" onclck="openApp(2)">加入会议</div>
   </div>
 </body>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -56,9 +56,9 @@
     }
   })
   // 打开应用
-  const openApp = function () {
+  const openApp = function (type) {
     /***打开app的协议***/
-    window.location.href = "zzsf://www.zzsf.enterprisechat?params=";
+    window.location.href = "zzsf://www.zzsf.enterprisechat?type=" + type;
     window.setTimeout(function() {
       window.location.href = 'https://zzsfportal.ssitg.com/obs/resource/openim/2.2.7-release.apk'
     }, 3000);
